@@ -77,11 +77,11 @@ def check(args):
 
     # no response = critical
     if not 'response' in data:
-        exit_critical("Search failed! Error in response:%s" % response)
+        exit_critical("Search failed! Error in response:%s" % data['response'])
     
     # no searches matched = critical
     if data['response']['numFound'] < 1:
-        exit_critical("Search failed! Zero matches:%s" % response)
+        exit_critical("Search failed! Zero matches:%s" % data['response'])
     
     # Test time thresholds
     timediff = endtime - starttime
